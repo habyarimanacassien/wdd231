@@ -1,0 +1,35 @@
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .navigation li {
+        border-bottom: none;
+    }
+
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .course-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
