@@ -1,0 +1,64 @@
+{
+    "members": [
+        {
+            "name": "Bank of Kigali",
+            "address": "KN 4 Avenue de la Paix, Kigali",
+            "phone": "+250 788  143 592",
+            "website": "https://www.bk.rw",
+            "image": "bank-of-kigali.jpg",
+            "membershipLevel": 3,
+            "category": "Financial Services",
+            "description": "Leading financial institution providing comprehensive banking services across Rwanda"
+        },
+        {
+            "name": "Rwanda Coffee Company",
+            "address": "KG 9 Ave, Kimihurura, Kigali",
+            "phone": "+250 788 234 567",
+            "website": "https://www.rwandacoffee.com",
+            "image": "rwanda-coffee.jpg",
+            "membershipLevel": 2,
+            "category": "Agriculture & Export",
+            "description": "Premium coffee exporter showcasing Rwanda's finest single-origin beans"
+        },
+        {
+            "name": "Kigali Heights",
+            "address": "KG 7 Ave, Kacyiru, Kigali",
+            "phone": "+250 788 345 678",
+            "website": "https://www.kigaliheights.com",
+            "image": "kigali-heights.jpg",
+            "membershipLevel": 3,
+            "category": "Real Estate",
+            "description": "Modern commercial and residential complex in the heart of Kigali"
+        },
+        {
+            "name": "Inema Arts Center",
+            "address": "KG 563 St, Kacyiru, Kigali",
+            "phone": "+250 788 456 789",
+            "website": "https://www.inemaartcenter.com",
+            "image": "inema-arts.jpg",
+            "membershipLevel": 1,
+            "category": "Arts & Culture",
+            "description": "Contemporary art gallery and cultural space promoting Rwandan artists"
+        },
+        {
+            "name": "Positivo BGH Rwanda",
+            "address": "Gasabo District, Kigali",
+            "phone": "+250 788 567 890",
+            "website": "https://www.positivobgh.rw",
+            "image": "positivo-bgh.jpg",
+            "membershipLevel": 2,
+            "category": "Technology",
+            "description": "Electronics manufacturer producing computers and tablets in Rwanda"
+        },
+        {
+            "name": "RwandAir",
+            "address": "KN 2 Ave, Kigali",
+            "phone": "+250 788 890 123",
+            "website": "https://www.rwandair.com",
+            "image": "rwandair.jpg",
+            "membershipLevel": 3,
+            "category": "Aviation",
+            "description": "National carrier connecting Rwanda to destinations across Africa and beyond"
+        }
+    ]
+}

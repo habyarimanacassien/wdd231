@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kigali Chamber of Commerce business directory featuring local businesses and organizations in Rwanda's capital city.">
+    <meta name="author" content="Cassien Habyarimana">
+
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Kigali Chamber of Commerce - Business Directory">
+    <meta property="og:description"
+        content="Explore businesses and organizations that are part of the Kigali Chamber of Commerce, driving economic growth in Rwanda's capital.">
+    <meta property="og:image" content="https://yourusername.github.io/wdd231/chamber/images/kigali-chamber-og.jpg">
+    <meta property="og:url" content="https://yourusername.github.io/wdd231/chamber/directory.html">
+    <meta property="og:type" content="website">
+
+    <title>Business Directory - Kigali Chamber of Commerce</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/directory.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="images/chamber-logo.png" alt="Kigali Chamber of Commerce Logo" class="logo">
+                <h1>Kigali Chamber of Commerce</h1>
+            </div>
+            <nav>
+                <button id="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html" class="active">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="directory-header">
+            <h2>Member Directory</h2>
+            <div class="view-controls">
+                <button id="grid-view" class="view-btn active" aria-label="Grid view">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                    </svg>
+                </button>
+                <button id="list-view" class="view-btn" aria-label="List view">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6" />
+                        <line x1="8" y1="12" x2="21" y2="12" />
+                        <line x1="8" y1="18" x2="21" y2="18" />
+                        <rect x="3" y="4" width="2" height="4" />
+                        <rect x="3" y="10" width="2" height="4" />
+                        <rect x="3" y="16" width="2" height="4" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="directory-container" class="grid-view">
+            <!-- Member cards will be inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section contact-info">
+                <h3>Kigali Chamber of Commerce</h3>
+                <p>KN 4 Ave, Kigali, Rwanda</p>
+                <p>Email: habyarimanacassien@gmail.com</p>
+                <p>Phone: +250 788 663 001</p>
+            </div>
+            <div class="footer-section social-media">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section development-info">
+                <p>&copy; <span id="copyright-year"></span> Kigali Chamber of Commerce</p>
+                <p><strong>Cassien Habyarimana</strong></p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modified: <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/directory.js"></script>
+</body>
+
+</html>
