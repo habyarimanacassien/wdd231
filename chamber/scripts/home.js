@@ -11,7 +11,7 @@ menuToggle.addEventListener('click', () => {
 });
 
 // Weather API Configuration - Using OpenWeatherMap API
-const WEATHER_API_KEY = '94f7044be7e3b382005afd120e01a26d'; // Your OpenWeatherMap API key
+const WEATHER_API_KEY = '94f7044be7e3b382005afd120e01a26d'; 
 const KIGALI_LAT = -1.9536;
 const KIGALI_LON = 30.0606;
 const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${KIGALI_LAT}&lon=${KIGALI_LON}&units=metric&appid=${WEATHER_API_KEY}`;
