@@ -10,8 +10,8 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('show');
 });
 
-// Weather API Configuration - Using OpenWeatherMap API
-const WEATHER_API_KEY = 'f1272be260e20d0cfb874c78347f3953'; // Free OpenWeatherMap API key
+// Weather API Configuration
+const WEATHER_API_KEY = '94f7044be7e3b382005afd120e01a26d'; //
 const KIGALI_LAT = -1.9536;
 const KIGALI_LON = 30.0606;
 const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${KIGALI_LAT}&lon=${KIGALI_LON}&units=metric&appid=${WEATHER_API_KEY}`;
@@ -29,7 +29,7 @@ async function getCurrentWeather() {
     } catch (error) {
         console.error('Error fetching current weather:', error);
         document.getElementById('current-weather-content').innerHTML =
-            '<p style="color: red;">Unable to load weather data at this time.</p>';
+            '<p style="color: red;">Unable to load weather data. Please check your API key.</p>';
     }
 }
 
@@ -66,7 +66,7 @@ async function getForecast() {
     } catch (error) {
         console.error('Error fetching forecast:', error);
         document.getElementById('forecast-content').innerHTML =
-            '<p style="color: red;">Unable to load forecast data at this time.</p>';
+            '<p style="color: red;">Unable to load forecast data.</p>';
     }
 }
 
@@ -74,42 +74,25 @@ async function getForecast() {
 function displayForecast(data) {
     // Get forecast for the next 3 days at noon
     const dailyForecasts = [];
-    const processedDays = new Set();
+    const today = new Date().getDate();
 
-    // Filter to get one forecast per day (prefer midday forecasts)
+    // Filter to get one forecast per day (at 12:00)
     data.list.forEach(item => {
         const forecastDate = new Date(item.dt * 1000);
-        const dateString = forecastDate.toDateString();
+        const forecastDay = forecastDate.getDate();
+        const forecastHour = forecastDate.getHours();
 
-        // Skip if we already have this day or have 3 days
-        if (!processedDays.has(dateString) && dailyForecasts.length < 3) {
-            // Prefer forecasts around noon (10 AM - 2 PM)
-            const hour = forecastDate.getHours();
-            if (hour >= 10 && hour <= 14) {
-                dailyForecasts.push(item);
-                processedDays.add(dateString);
-            }
+        // Get forecasts at 12:00 PM for next 3 days
+        if (forecastHour === 12 && forecastDay !== today && dailyForecasts.length < 3) {
+            dailyForecasts.push(item);
         }
     });
-
-    // If we don't have 3 forecasts yet, add any remaining days
-    if (dailyForecasts.length < 3) {
-        data.list.forEach(item => {
-            const forecastDate = new Date(item.dt * 1000);
-            const dateString = forecastDate.toDateString();
-
-            if (!processedDays.has(dateString) && dailyForecasts.length < 3) {
-                dailyForecasts.push(item);
-                processedDays.add(dateString);
-            }
-        });
-    }
 
     let forecastHTML = '<div class="forecast-grid">';
 
     dailyForecasts.forEach(day => {
         const date = new Date(day.dt * 1000);
-        const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
         const temp = Math.round(day.main.temp);
         const description = day.weather[0].description;
 
