@@ -1,0 +1,227 @@
+/* Thank You Page Styles */
+.thankyou-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.success-icon {
+    margin: 2rem auto;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.thankyou-container h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.6s ease 0.2s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.6s ease 0.3s both;
+}
+
+.application-summary {
+    background-color: var(--light-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.6s ease 0.4s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.application-summary h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#summary-content {
+    display: grid;
+    gap: 1rem;
+}
+
+.summary-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: var(--white);
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.summary-item strong {
+    color: var(--primary-color);
+}
+
+.summary-item span {
+    color: var(--text-color);
+    word-break: break-word;
+}
+
+.next-steps {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--primary-color);
+    animation: fadeInUp 0.6s ease 0.5s both;
+}
+
+.next-steps h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.next-steps ol {
+    padding-left: 1.5rem;
+    line-height: 2;
+}
+
+.next-steps ol li {
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    animation: fadeInUp 0.6s ease 0.6s both;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 700;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .thankyou-container {
+        padding: 1.5rem;
+    }
+
+    .thankyou-container h2 {
+        font-size: 2rem;
+    }
+
+    .success-message {
+        font-size: 1.1rem;
+    }
+
+    .summary-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .application-summary,
+    .next-steps {
+        padding: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .thankyou-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .success-message {
+        font-size: 1rem;
+    }
+
+    .application-summary,
+    .next-steps {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}

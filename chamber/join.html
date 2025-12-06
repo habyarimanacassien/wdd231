@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Join the Kigali Chamber of Commerce and become part of Rwanda's leading business community.">
+    <meta name="author" content="Cassien Habyarimana">
+
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Join - Kigali Chamber of Commerce">
+    <meta property="og:description"
+        content="Apply for membership at the Kigali Chamber of Commerce and unlock exclusive business benefits.">
+    <meta property="og:image" content="images/kigali-chamber-logo.jpg">
+    <meta property="og:url" content="https://habyarimanacassien.github.io/wdd231/chamber/join.html">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+    <title>Join Us - Kigali Chamber of Commerce</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/join.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="images/kigali-chamber-logo.jpg" alt="Kigali Chamber of Commerce Logo" class="logo">
+                <h1>Kigali Chamber of Commerce</h1>
+            </div>
+            <nav>
+                <button id="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html" class="active">Join</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="join-container">
+            <div class="form-section">
+                <h2>Membership Application</h2>
+                <p class="intro-text">Join the Kigali Chamber of Commerce and unlock exclusive benefits for your
+                    business.</p>
+
+                <form action="thankyou.html" method="get" id="membership-form">
+                    <label for="first-name">
+                        First Name *
+                        <input type="text" id="first-name" name="first-name" title="First Name"
+                            autocomplete="given-name" required>
+                    </label>
+
+                    <label for="last-name">
+                        Last Name *
+                        <input type="text" id="last-name" name="last-name" title="Last Name" autocomplete="family-name"
+                            required>
+                    </label>
+
+                    <label for="org-title">
+                        Organizational Title
+                        <input type="text" id="org-title" name="org-title" title="Organizational Title"
+                            autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}"
+                            title="Please enter at least 7 alphabetic characters, spaces, or hyphens">
+                    </label>
+
+                    <label for="email">
+                        Email Address *
+                        <input type="email" id="email" name="email" title="Email Address" autocomplete="email"
+                            placeholder="example@business.com" required>
+                    </label>
+
+                    <label for="mobile">
+                        Mobile Phone *
+                        <input type="tel" id="mobile" name="mobile" title="Mobile Phone Number" autocomplete="tel"
+                            required>
+                    </label>
+
+                    <label for="business-name">
+                        Business/Organization Name *
+                        <input type="text" id="business-name" name="business-name" title="Business or Organization Name"
+                            autocomplete="organization" required>
+                    </label>
+
+                    <label for="membership-level">
+                        Membership Level *
+                        <select id="membership-level" name="membership-level" title="Membership Level" required>
+                            <option value="">Select a membership level</option>
+                            <option value="np">NP Membership (Non-Profit - Free)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </label>
+
+                    <label for="business-description">
+                        Business/Organization Description
+                        <textarea id="business-description" name="business-description" title="Business Description"
+                            rows="5" placeholder="Tell us about your business or organization..."></textarea>
+                    </label>
+
+                    <input type="hidden" id="timestamp" name="timestamp">
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+
+            <div class="membership-cards-section">
+                <h2>Membership Levels</h2>
+                <div class="membership-cards">
+                    <div class="membership-card np-card">
+                        <h3>NP Membership</h3>
+                        <p class="price">Free</p>
+                        <p class="description">For non-profit organizations</p>
+                        <a href="#" class="learn-more" data-modal="np-modal">Learn More</a>
+                    </div>
+
+                    <div class="membership-card bronze-card">
+                        <h3>Bronze</h3>
+                        <p class="price">$100/year</p>
+                        <p class="description">Essential business benefits</p>
+                        <a href="#" class="learn-more" data-modal="bronze-modal">Learn More</a>
+                    </div>
+
+                    <div class="membership-card silver-card">
+                        <h3>Silver</h3>
+                        <p class="price">$250/year</p>
+                        <p class="description">Enhanced networking opportunities</p>
+                        <a href="#" class="learn-more" data-modal="silver-modal">Learn More</a>
+                    </div>
+
+                    <div class="membership-card gold-card">
+                        <h3>Gold</h3>
+                        <p class="price">$500/year</p>
+                        <p class="description">Premium features & spotlight</p>
+                        <a href="#" class="learn-more" data-modal="gold-modal">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="np-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>NP Membership Benefits</h3>
+                <ul>
+                    <li>Free listing in our business directory</li>
+                    <li>Access to monthly networking events</li>
+                    <li>Quarterly newsletter subscription</li>
+                    <li>Business resource library access</li>
+                    <li>Community event participation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="bronze-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Bronze Membership Benefits</h3>
+                <ul>
+                    <li>All NP Membership benefits</li>
+                    <li>Priority event registration</li>
+                    <li>Quarterly business workshops</li>
+                    <li>Member-to-member discounts</li>
+                    <li>Social media promotion (1x/quarter)</li>
+                    <li>Chamber event discounts (10%)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="silver-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Silver Membership Benefits</h3>
+                <ul>
+                    <li>All Bronze Membership benefits</li>
+                    <li>Featured listing in directory</li>
+                    <li>Monthly spotlight opportunity on homepage</li>
+                    <li>Free training sessions (up to 3/year)</li>
+                    <li>Social media promotion (2x/quarter)</li>
+                    <li>Chamber event discounts (20%)</li>
+                    <li>Business advisory services</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="gold-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Gold Membership Benefits</h3>
+                <ul>
+                    <li>All Silver Membership benefits</li>
+                    <li>Premium directory placement</li>
+                    <li>Weekly spotlight on homepage</li>
+                    <li>Unlimited training sessions</li>
+                    <li>Weekly social media promotion</li>
+                    <li>Chamber event discounts (30%)</li>
+                    <li>Exclusive executive networking events</li>
+                    <li>Advertising in chamber publications</li>
+                    <li>Speaking opportunities at events</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section contact-info">
+                <h3>Kigali Chamber of Commerce</h3>
+                <p>KN 4 Ave, Kigali, Rwanda</p>
+                <p>Email: habyarimanacassien@gmail.com</p>
+                <p>Phone: +250 788 663 001</p>
+            </div>
+            <div class="footer-section social-media">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section development-info">
+                <p>&copy; <span id="copyright-year"></span> Kigali Chamber of Commerce</p>
+                <p><strong>Cassien Habyarimana</strong></p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modified: <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/join.js"></script>
+</body>
+
+</html>

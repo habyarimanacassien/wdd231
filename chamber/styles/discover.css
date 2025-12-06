@@ -1,0 +1,332 @@
+/* Discover Page Styles */
+.discover-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 1rem;
+}
+
+.discover-header h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.visit-message {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    max-width: 600px;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Attractions Container - Grid Areas Layout */
+.attractions-container {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Small screens (320px - 640px) - Single column */
+@media (max-width: 640px) {
+    .attractions-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6"
+            "card7"
+            "card8";
+    }
+
+    .attraction-card:nth-child(1) {
+        grid-area: card1;
+    }
+
+    .attraction-card:nth-child(2) {
+        grid-area: card2;
+    }
+
+    .attraction-card:nth-child(3) {
+        grid-area: card3;
+    }
+
+    .attraction-card:nth-child(4) {
+        grid-area: card4;
+    }
+
+    .attraction-card:nth-child(5) {
+        grid-area: card5;
+    }
+
+    .attraction-card:nth-child(6) {
+        grid-area: card6;
+    }
+
+    .attraction-card:nth-child(7) {
+        grid-area: card7;
+    }
+
+    .attraction-card:nth-child(8) {
+        grid-area: card8;
+    }
+}
+
+/* Medium screens (641px - 1024px) - Two columns */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .attractions-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
+
+    .attraction-card:nth-child(1) {
+        grid-area: card1;
+    }
+
+    .attraction-card:nth-child(2) {
+        grid-area: card2;
+    }
+
+    .attraction-card:nth-child(3) {
+        grid-area: card3;
+    }
+
+    .attraction-card:nth-child(4) {
+        grid-area: card4;
+    }
+
+    .attraction-card:nth-child(5) {
+        grid-area: card5;
+    }
+
+    .attraction-card:nth-child(6) {
+        grid-area: card6;
+    }
+
+    .attraction-card:nth-child(7) {
+        grid-area: card7;
+    }
+
+    .attraction-card:nth-child(8) {
+        grid-area: card8;
+    }
+}
+
+/* Large screens (1025px and above) - Three columns with featured layout */
+@media (min-width: 1025px) {
+    .attractions-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "card1 card1 card2"
+            "card3 card4 card2"
+            "card5 card6 card7"
+            "card5 card8 card7";
+    }
+
+    .attraction-card:nth-child(1) {
+        grid-area: card1;
+    }
+
+    .attraction-card:nth-child(2) {
+        grid-area: card2;
+    }
+
+    .attraction-card:nth-child(3) {
+        grid-area: card3;
+    }
+
+    .attraction-card:nth-child(4) {
+        grid-area: card4;
+    }
+
+    .attraction-card:nth-child(5) {
+        grid-area: card5;
+    }
+
+    .attraction-card:nth-child(6) {
+        grid-area: card6;
+    }
+
+    .attraction-card:nth-child(7) {
+        grid-area: card7;
+    }
+
+    .attraction-card:nth-child(8) {
+        grid-area: card8;
+    }
+}
+
+/* Attraction Card Styles */
+.attraction-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.attraction-card h2 {
+    color: var(--primary-color);
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.attraction-card figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.attraction-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s, filter 0.5s;
+}
+
+/* Hover effects for larger screens only */
+@media (min-width: 641px) {
+    .attraction-card:hover img {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+}
+
+/* Loading effect for lazy images */
+.attraction-card img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.attraction-card address {
+    font-style: normal;
+    padding: 0 1.5rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.attraction-card p {
+    padding: 0 1.5rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    margin: 0 1.5rem 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.learn-more-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .discover-header h2 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .visit-message {
+        font-size: 1rem;
+        padding: 0.85rem 1.5rem;
+    }
+
+    .attraction-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .discover-header {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .discover-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .visit-message {
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .attraction-card h2 {
+        font-size: 1.2rem;
+        padding: 1rem 1rem 0.5rem;
+    }
+
+    .attraction-card address,
+    .attraction-card p {
+        padding: 0 1rem;
+    }
+
+    .learn-more-btn {
+        margin: 0 1rem 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}

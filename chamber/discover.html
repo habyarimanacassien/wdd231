@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover Kigali, Rwanda - Explore local attractions, culture, and opportunities in Rwanda's vibrant capital city.">
+    <meta name="author" content="Cassien Habyarimana">
+
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Discover Kigali - Chamber of Commerce">
+    <meta property="og:description"
+        content="Explore the best of Kigali, Rwanda's capital city. Discover attractions, culture, and business opportunities.">
+    <meta property="og:image" content="images/kigali-chamber-logo.jpg">
+    <meta property="og:url" content="https://habyarimanacassien.github.io/wdd231/chamber/discover.html">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+    <title>Discover Kigali - Chamber of Commerce</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/discover.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="images/kigali-chamber-logo.jpg" alt="Kigali Chamber of Commerce Logo" class="logo">
+                <h1>Kigali Chamber of Commerce</h1>
+            </div>
+            <nav>
+                <button id="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="discover.html" class="active">Discover</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="discover-header">
+            <h2>Discover Kigali</h2>
+            <p class="subtitle">Explore the heart of Rwanda - where tradition meets innovation</p>
+            <div id="visit-message" class="visit-message"></div>
+        </div>
+
+        <div id="attractions-container" class="attractions-container">
+            <!-- Attraction cards will be inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section contact-info">
+                <h3>Kigali Chamber of Commerce</h3>
+                <p>KN 4 Ave, Kigali, Rwanda</p>
+                <p>Email: habyarimanacassien@gmail.com</p>
+                <p>Phone: +250 788 663 001</p>
+            </div>
+            <div class="footer-section social-media">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section development-info">
+                <p>&copy; <span id="copyright-year"></span> Kigali Chamber of Commerce</p>
+                <p><strong>Cassien Habyarimana</strong></p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modified: <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/discover.js" type="module"></script>
+</body>
+
+</html>

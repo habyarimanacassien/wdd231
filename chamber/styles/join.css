@@ -1,0 +1,339 @@
+/* Join Page Styles */
+.join-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-section,
+.membership-cards-section {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.form-section h2,
+.membership-cards-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: var(--text-color);
+    gap: 0.5rem;
+}
+
+input,
+select,
+textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+input:invalid:not(:placeholder-shown),
+select:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+}
+
+input:valid,
+select:valid {
+    border-color: var(--accent-color);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Membership Cards */
+.membership-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.membership-card {
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--white) 100%);
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--border-color);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Animation delays for cards */
+.membership-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.membership-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.membership-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.membership-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.membership-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.np-card {
+    border-color: var(--accent-color);
+}
+
+.bronze-card {
+    border-color: #CD7F32;
+}
+
+.silver-card {
+    border-color: #C0C0C0;
+}
+
+.gold-card {
+    border-color: #FFD700;
+}
+
+.membership-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.membership-card .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 1rem 0;
+}
+
+.membership-card .description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.learn-more {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.6rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.learn-more:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #999;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--primary-color);
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content ul li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.modal-content ul li:before {
+    content: "✓";
+    color: var(--accent-color);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+.modal-content ul li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+    .join-container {
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    .membership-cards-section {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    .membership-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .join-container {
+        gap: 2rem;
+    }
+
+    .form-section,
+    .membership-cards-section {
+        padding: 1.5rem;
+    }
+
+    .membership-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 10% 1rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .form-section,
+    .membership-cards-section {
+        padding: 1rem;
+    }
+
+    .membership-card .price {
+        font-size: 1.5rem;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 0.95rem;
+    }
+}
