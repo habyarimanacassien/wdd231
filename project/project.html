@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course website for Nonparametric Methods and ICT Skills courses">
+    <title>Teach With Cassien - Course Platform</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="styles/project-large.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Teach With Cassien</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="project.html" class="active">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#announcements">Announcements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Teach With Cassien Platform</h2>
+                <p>Access course materials, assignments, and resources for Nonparametric Methods and ICT Skills courses</p>
+                <button class="cta-button" id="exploreCourses">Explore Courses</button>
+            </div>
+        </section>
+
+        <section class="courses-section" id="courses">
+            <h2>Semester 1 Courses</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/nonparametric.jpg" alt="Nonparametric Methods" loading="lazy">
+                    </div>
+                    <div class="course-info">
+                        <h3>Nonparametric Methods</h3>
+                        <p class="course-description">Year 3 Statistics - This course covers nonparametric statistical methods that don't rely on data belonging to any particular distribution.</p>
+                        <div class="course-details">
+                            <p><strong>Instructor:</strong> Cassien Habyarimana</p>
+                            <p><strong>Semester:</strong> 1</p>
+                            <p><strong>Credits:</strong> 10</p>
+                        </div>
+                        <button class="view-course-btn" data-course="nonparametric">View Course Details</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images/ict.jpg" alt="ICT Skills" loading="lazy">
+                    </div>
+                    <div class="course-info">
+                        <h3>ICT Skills</h3>
+                        <p class="course-description">Year 1 Statistics, Applied Mathematics, and Applied Physics - Essential ICT skills for academic and professional success.</p>
+                        <div class="course-details">
+                            <p><strong>Instructor:</strong> Cassien Habyarimana</p>
+                            <p><strong>Semester:</strong> 1</p>
+                            <p><strong>Credits:</strong> 15</p>
+                        </div>
+                        <button class="view-course-btn" data-course="ict">View Course Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="schedule-section" id="schedule">
+            <h2>Course Schedule</h2>
+            <div class="schedule-container">
+                <div class="schedule-tabs">
+                    <button class="tab-btn active" data-tab="nonparametric">Nonparametric Methods</button>
+                    <button class="tab-btn" data-tab="ict">ICT Skills</button>
+                </div>
+                
+                <div class="tab-content active" id="nonparametric-tab">
+                    <div class="week-selector">
+                        <label for="week-select-nonparametric">Select Week:</label>
+                        <select id="week-select-nonparametric" class="week-select">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="week-content">
+                        <h3 class="week-title">Week 1</h3>
+                        <div class="week-details">
+                            <div class="lecture">
+                                <h4>Lecture</h4>
+                                <p class="lecture-content">Lecture content will appear here</p>
+                            </div>
+                            <div class="assignments">
+                                <h4>Assignments</h4>
+                                <ul class="assignment-list">
+                                    <!-- Assignment list will be populated by JavaScript -->
+                                </ul>
+                            </div>
+                            <div class="quizzes-cats">
+                                <h4>Assessments</h4>
+                                <div class="assessment-info">
+                                    <!-- Quiz and CAT info will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="ict-tab">
+                    <div class="week-selector">
+                        <label for="week-select-ict">Select Week:</label>
+                        <select id="week-select-ict" class="week-select">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="week-content">
+                        <h3 class="week-title">Week 1</h3>
+                        <div class="week-details">
+                            <div class="lecture">
+                                <h4>Lecture</h4>
+                                <p class="lecture-content">Lecture content will appear here</p>
+                            </div>
+                            <div class="assignments">
+                                <h4>Assignments</h4>
+                                <ul class="assignment-list">
+                                    <!-- Assignment list will be populated by JavaScript -->
+                                </ul>
+                            </div>
+                            <div class="quizzes-cats">
+                                <h4>Assessments</h4>
+                                <div class="assessment-info">
+                                    <!-- Quiz and CAT info will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section" id="resources">
+            <h2>Learning Resources</h2>
+            <div class="resources-container">
+                <div class="resource-category">
+                    <h3>Textbooks</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://www.wiley.com/en-us/Nonparametric+Statistical+Methods%2C+3rd+Edition-p-9780470387375">Nonparametric Statistical Methods, 3rd Edition</a></li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h3>Software & Tools</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://modernstatisticswithr.com/">R Statistical Software</a></li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h3>Online Resources</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://www.khanacademy.org/math/statistics-probability">Khan Academy - Statistics</a></li>
+                        <li><a href="https://studentvocation.com/best-websites-for-learning-ict-skills-in-2025/">Learning ICT Skills</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="announcements-section" id="announcements">
+            <h2>Announcements</h2>
+            <div class="announcements-container">
+                <div class="announcement-form">
+                    <h3>Add New Announcement</h3>
+                    <form id="announcement-form">
+                        <div class="form-group">
+                            <label for="announcement-title">Title:</label>
+                            <input type="text" id="announcement-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="announcement-content">Content:</label>
+                            <textarea id="announcement-content" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="announcement-course">Course:</label>
+                            <select id="announcement-course">
+                                <option value="all">All Courses</option>
+                                <option value="nonparametric">Nonparametric Methods</option>
+                                <option value="ict">ICT Skills</option>
+                            </select>
+                        </div>
+                        <button type="submit">Post Announcement</button>
+                    </form>
+                </div>
+                <div class="announcements-list" id="announcements-list">
+                    <!-- Announcements will be populated here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2>Contact Instructor</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Cassien Habyarimana</h3>
+                    <p><strong>Email:</strong> c.habyarimana@ur.ac.rw</p>
+                    <p><strong>Office:</strong> Muhabura Block, Room 106</p>
+                    <p><strong>Office Hours:</strong> Monday, Wednesday & Friday, 2:00 PM - 4:00 PM</p>
+                    <div class="quick-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">Course Syllabus</a></li>
+                            <li><a href="#">Assignment Submission</a></li>
+                            <li><a href="#">Grade Portal</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name:</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course:</label>
+                            <select id="course" required>
+                                <option value="">Select a course</option>
+                                <option value="nonparametric">Nonparametric Methods</option>
+                                <option value="ict">ICT Skills</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; <span id="current-year"></span> Teach With Cassien | University of Rwanda</p>
+                <p>Last Modified: <span id="last-modified"></span></p>
+            </div>
+            <div class="footer-links">
+                <a href="references.html">References</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Large Screen Styles */
+@media (min-width: 769px) {
+    /* Header */
+    .menu-toggle {
+        display: none;
+    }
+    
+    .main-nav {
+        display: block;
+        position: static;
+        width: auto;
+        background: transparent;
+        box-shadow: none;
+    }
+    
+    .main-nav ul {
+        display: flex;
+    }
+    
+    .main-nav li {
+        border: none;
+    }
+    
+    .main-nav a {
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 5rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    /* Courses Section */
+    .courses-container {
+        flex-direction: row;
+    }
+    
+    .course-card {
+        flex: 1;
+    }
+    
+    /* Schedule Section */
+    .week-selector {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .week-details {
+        flex-direction: row;
+    }
+    
+    .week-details > div {
+        flex: 1;
+    }
+    
+    /* Resources Section */
+    .resources-container {
+        flex-direction: row;
+    }
+    
+    .resource-category {
+        flex: 1;
+    }
+    
+    /* Announcements Section */
+    .announcements-container {
+        flex-direction: row;
+    }
+    
+    .announcement-form {
+        flex: 1;
+    }
+    
+    .announcements-list {
+        flex: 2;
+    }
+    
+    /* Contact Section */
+    .contact-container {
+        flex-direction: row;
+    }
+    
+    .contact-info {
+        flex: 1;
+    }
+    
+    .contact-form {
+        flex: 2;
+    }
+    
+    /* Footer */
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .footer-links {
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-container,
+    main,
+    .footer-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+}
