@@ -24,7 +24,10 @@ body {
     background-color: var(--background-color);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Georgia', serif;
     color: var(--primary-color);
     margin-bottom: 1rem;
@@ -108,6 +111,7 @@ header {
     width: 100%;
     background-color: var(--white);
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 .main-nav {
@@ -310,7 +314,7 @@ section {
     gap: 1.5rem;
 }
 
-.week-details > div {
+.week-details>div {
     background-color: var(--accent-color);
     padding: 1rem;
     border-radius: var(--border-radius);
@@ -319,6 +323,149 @@ section {
 .week-details h4 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
+}
+
+/* Books Container */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.book-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.book-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.no-cover {
+    width: 100%;
+    height: 200px;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+    font-style: italic;
+}
+
+.book-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    min-height: 2.5rem;
+}
+
+.book-info p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.view-details-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.view-details-btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    color: var(--light-text);
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+}
+
+#modal-body h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border: none;
+}
+
+#modal-body img {
+    display: block;
+    margin: 1rem auto;
+    border-radius: var(--border-radius);
+}
+
+#modal-body p {
+    margin-bottom: 0.75rem;
+}
+
+#modal-body button {
+    margin-top: 1rem;
 }
 
 /* Resources Section */
@@ -416,6 +563,8 @@ button[type="submit"]:hover {
 .announcement-meta {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     font-size: 0.8rem;
     color: var(--light-text);
     margin-bottom: 0.5rem;
@@ -426,6 +575,10 @@ button[type="submit"]:hover {
     color: #e74c3c;
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
+}
+
+.delete-announcement:hover {
+    background-color: #fee;
 }
 
 /* Contact Section */
@@ -484,12 +637,20 @@ footer {
     color: var(--white);
 }
 
+/* Error Message */
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
 /* Utility Classes */
 .hidden {
     display: none !important;
 }
 
-/* Additional CSS for schedule functionality */
 .week-select {
     padding: 0.5rem;
     border: 1px solid #ddd;
@@ -523,11 +684,24 @@ footer {
     left: 0;
 }
 
+.assignment-list .no-assignment {
+    color: var(--light-text);
+    font-style: italic;
+}
+
 .assessment-info p {
     margin-bottom: 0.5rem;
 }
 
-.assignment-list .no-assignment {
-    color: var(--light-text);
-    font-style: italic;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .books-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
 }
