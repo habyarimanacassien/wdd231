@@ -1,0 +1,94 @@
+/* References Page Specific Styles */
+
+.references-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.references-hero h1 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.references-hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.references-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.reference-category {
+    background-color: var(--white);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.reference-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.reference-list {
+    list-style: none;
+    padding: 0;
+}
+
+.reference-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.reference-list li:before {
+    content: "📚";
+    position: absolute;
+    left: 0;
+}
+
+.reference-list em {
+    font-style: italic;
+}
+
+.reference-list a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+.reference-list a:hover {
+    color: var(--primary-color);
+}
+
+.back-navigation {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 769px) {
+    .references-hero {
+        padding: 5rem 2rem;
+    }
+
+    .references-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .reference-category {
+        padding: 2rem;
+    }
+}
