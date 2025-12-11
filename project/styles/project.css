@@ -6,15 +6,18 @@
 }
 
 :root {
-    --primary-color: #2c5aa0;
-    --secondary-color: #3498db;
+    --primary-color: #1e4178;
+    --secondary-color: #2980b9;
     --accent-color: #e8f4f8;
     --text-color: #2c3e50;
-    --light-text: #7f8c8d;
+    --light-text: #5a6c7d;
     --background-color: #f8f9fa;
     --white: #ffffff;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
+    --success-color: #27ae60;
+    --info-color: #3498db;
+    --error-color: #c0392b;
 }
 
 body {
@@ -58,8 +61,11 @@ a {
     transition: color 0.3s;
 }
 
-a:hover {
+a:hover,
+a:focus {
     color: var(--primary-color);
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 button {
@@ -67,6 +73,11 @@ button {
     border: none;
     border-radius: var(--border-radius);
     transition: all 0.3s;
+}
+
+button:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 /* Header Styles */
@@ -142,6 +153,7 @@ header {
     padding: 1rem;
     color: var(--white);
     text-decoration: none;
+    font-weight: 500;
 }
 
 .main-nav a.active,
@@ -177,11 +189,12 @@ header {
     color: var(--primary-color);
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 50px;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -234,11 +247,13 @@ section {
 
 .course-description {
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 .course-details p {
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    color: var(--text-color);
 }
 
 .view-course-btn {
@@ -247,10 +262,11 @@ section {
     padding: 0.75rem 1.5rem;
     margin-top: 1rem;
     width: 100%;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.view-course-btn:hover {
+.view-course-btn:hover,
+.view-course-btn:focus {
     background-color: var(--primary-color);
 }
 
@@ -273,7 +289,7 @@ section {
     padding: 1rem;
     background-color: var(--accent-color);
     color: var(--text-color);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .tab-btn.active {
@@ -299,13 +315,16 @@ section {
 }
 
 .week-selector label {
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-color);
 }
 
 .week-selector select {
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
+    color: var(--text-color);
+    font-size: 1rem;
 }
 
 .week-details {
@@ -391,10 +410,11 @@ section {
     padding: 0.5rem 1rem;
     margin-top: auto;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.view-details-btn:hover {
+.view-details-btn:hover,
+.view-details-btn:focus {
     background-color: var(--primary-color);
 }
 
@@ -444,7 +464,8 @@ section {
     line-height: 1;
 }
 
-.close-modal:hover {
+.close-modal:hover,
+.close-modal:focus {
     color: var(--text-color);
 }
 
@@ -462,6 +483,7 @@ section {
 
 #modal-body p {
     margin-bottom: 0.75rem;
+    color: var(--text-color);
 }
 
 #modal-body button {
@@ -498,6 +520,7 @@ section {
     color: var(--secondary-color);
     position: absolute;
     left: 0;
+    font-weight: bold;
 }
 
 /* Announcements Section */
@@ -523,7 +546,8 @@ section {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-color);
 }
 
 .form-group input,
@@ -534,6 +558,16 @@ section {
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
     font-family: inherit;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 0;
+    border-color: var(--secondary-color);
 }
 
 .form-group textarea {
@@ -544,10 +578,11 @@ button[type="submit"] {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 0.75rem 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+button[type="submit"]:focus {
     background-color: var(--secondary-color);
 }
 
@@ -565,19 +600,22 @@ button[type="submit"]:hover {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--light-text);
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .delete-announcement {
     background: none;
-    color: #e74c3c;
+    color: var(--error-color);
     padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
-.delete-announcement:hover {
+.delete-announcement:hover,
+.delete-announcement:focus {
     background-color: #fee;
 }
 
@@ -631,19 +669,42 @@ footer {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
     color: var(--white);
+    font-weight: 600;
+}
+
+/* Video Demo Link Styling */
+.video-demo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: #c0392b;
+    color: var(--white) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.video-demo-link:hover,
+.video-demo-link:focus {
+    background-color: #a93226;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Error Message */
 .error-message {
     background-color: #fee;
-    color: #c33;
+    color: var(--error-color);
     padding: 1rem;
     border-radius: var(--border-radius);
     margin-top: 1rem;
+    font-weight: 600;
 }
 
 /* Utility Classes */
@@ -664,6 +725,7 @@ footer {
 
 .lecture-content {
     margin-bottom: 0;
+    color: var(--text-color);
 }
 
 .assignment-list {
@@ -675,6 +737,7 @@ footer {
     padding: 0.25rem 0;
     position: relative;
     padding-left: 1rem;
+    color: var(--text-color);
 }
 
 .assignment-list li:before {
@@ -682,6 +745,7 @@ footer {
     color: var(--secondary-color);
     position: absolute;
     left: 0;
+    font-weight: bold;
 }
 
 .assignment-list .no-assignment {
@@ -691,6 +755,24 @@ footer {
 
 .assessment-info p {
     margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Contact Confirmation */
+.contact-confirmation {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive adjustments */
@@ -704,38 +786,6 @@ footer {
         margin: 10% auto;
         padding: 1.5rem;
     }
-}
-
-/* Video Demo Link Styling */
-.video-demo-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    background-color: #e74c3c;
-    color: var(--white) !important;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.video-demo-link:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Make footer links flex for better spacing */
-.footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: var(--white);
 }
 
 /* Responsive adjustments for footer */

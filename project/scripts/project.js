@@ -85,7 +85,6 @@ function init() {
     setupFormHandlers();
     createModal();
     fetchStudyResources();
-    loadUserPreferences();
 }
 
 // Fetch study resources from API
@@ -140,8 +139,7 @@ function displayStudyResources(resources) {
     const validResources = resources.filter(resource =>
         resource.title &&
         resource.author &&
-        resource.subject //&&
-       // resource.subject.toLowerCase().includes('statistics')
+        resource.subject
     ).slice(0, 15);
 
     // Show message if no statistics books found
@@ -237,42 +235,87 @@ function showBookModal(book) {
     });
 }
 
-// Add book to favorites using localStorage
+// Add book to favorites - using in-memory storage
+const inMemoryStorage = {
+    favoriteBooks: [],
+    userPreferences: {},
+    announcements: [],
+    contactMessages: []
+};
+
 function addToFavorites(book) {
-    let favorites = JSON.parse(localStorage.getItem('favoriteBooks') || '[]');
-
-    if (!favorites.find(fav => fav.id === book.id)) {
-        favorites.push(book);
-        localStorage.setItem('favoriteBooks', JSON.stringify(favorites));
-        alert(`"${book.title}" has been added to your library!`);
+    if (!inMemoryStorage.favoriteBooks.find(fav => fav.id === book.id)) {
+        inMemoryStorage.favoriteBooks.push(book);
+        showNotification(`"${book.title}" has been added to your library!`, 'success');
     } else {
-        alert('This book is already in your library.');
+        showNotification('This book is already in your library.', 'info');
     }
 }
 
-// Load user preferences
-function loadUserPreferences() {
-    const preferences = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+// Show notification instead of alert
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        background-color: ${type === 'success' ? '#27ae60' : '#3498db'};
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+    `;
 
-    if (preferences.defaultCourse) {
-        switchTab(preferences.defaultCourse);
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-out';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Add CSS animations for notifications
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
-}
-
-// Save user preference
-function saveUserPreference(key, value) {
-    const preferences = JSON.parse(localStorage.getItem('userPreferences') || '{}');
-    preferences[key] = value;
-    localStorage.setItem('userPreferences', JSON.stringify(preferences));
-}
+    
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
 
 // Set footer information
 function setFooterInfo() {
     const currentYear = new Date().getFullYear();
-    currentYearElement.textContent = currentYear;
+    if (currentYearElement) {
+        currentYearElement.textContent = currentYear;
+    }
 
     const lastModified = new Date(document.lastModified);
-    lastModifiedElement.textContent = lastModified.toLocaleDateString();
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = lastModified.toLocaleDateString();
+    }
 }
 
 // Set up all event listeners
@@ -290,7 +333,7 @@ function setupEventListeners() {
             const course = this.getAttribute('data-course');
             switchTab(course);
             scrollToSchedule();
-            saveUserPreference('defaultCourse', course);
+            inMemoryStorage.userPreferences.defaultCourse = course;
         });
     });
 
@@ -298,7 +341,7 @@ function setupEventListeners() {
         btn.addEventListener('click', function () {
             const tab = this.getAttribute('data-tab');
             switchTab(tab);
-            saveUserPreference('defaultCourse', tab);
+            inMemoryStorage.userPreferences.defaultCourse = tab;
         });
     });
 }
@@ -321,11 +364,17 @@ function toggleMobileMenu() {
 
 // Scroll functions
 function scrollToCourses() {
-    document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+    const coursesSection = document.getElementById('courses');
+    if (coursesSection) {
+        coursesSection.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 function scrollToSchedule() {
-    document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
+    const scheduleSection = document.getElementById('schedule');
+    if (scheduleSection) {
+        scheduleSection.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 // Switch between tabs
@@ -352,6 +401,8 @@ function switchTab(tabName) {
 function initializeSchedule(courseId) {
     const course = courses[courseId];
     const activeTab = document.querySelector('.tab-content.active');
+
+    if (!activeTab) return;
 
     const weekSelect = activeTab.querySelector('.week-select');
     const weekTitle = activeTab.querySelector('.week-title');
@@ -455,18 +506,16 @@ function handleAnnouncementSubmit(e) {
     saveAnnouncement(announcement);
     announcementForm.reset();
     loadAnnouncements();
+    showNotification('Announcement posted successfully!', 'success');
 }
 
 // Announcement management functions
 function saveAnnouncement(announcement) {
-    let announcements = getAnnouncements();
-    announcements.unshift(announcement);
-    localStorage.setItem('course-announcements', JSON.stringify(announcements));
+    inMemoryStorage.announcements.unshift(announcement);
 }
 
 function getAnnouncements() {
-    const stored = localStorage.getItem('course-announcements');
-    return stored ? JSON.parse(stored) : [];
+    return inMemoryStorage.announcements;
 }
 
 function loadAnnouncements() {
@@ -475,7 +524,7 @@ function loadAnnouncements() {
         announcementsList.innerHTML = '';
 
         if (announcements.length === 0) {
-            announcementsList.innerHTML = '<p>No announcements yet.</p>';
+            announcementsList.innerHTML = '<p>No announcements yet. Post your first announcement using the form!</p>';
             return;
         }
 
@@ -508,10 +557,9 @@ function createAnnouncementElement(announcement) {
 }
 
 function deleteAnnouncement(id) {
-    let announcements = getAnnouncements();
-    announcements = announcements.filter(ann => ann.id !== id);
-    localStorage.setItem('course-announcements', JSON.stringify(announcements));
+    inMemoryStorage.announcements = inMemoryStorage.announcements.filter(ann => ann.id !== id);
     loadAnnouncements();
+    showNotification('Announcement deleted.', 'info');
 }
 
 // Handle contact form submission
@@ -535,19 +583,53 @@ function handleContactSubmit(e) {
     };
 
     saveContactMessage(contactMessage);
-    alert('Thank you for your message! You will get feedback soon.');
+    displayContactConfirmation(contactMessage);
     contactForm.reset();
 }
 
 function saveContactMessage(message) {
-    let messages = getContactMessages();
-    messages.unshift(message);
-    localStorage.setItem('course-contact-messages', JSON.stringify(messages));
+    inMemoryStorage.contactMessages.unshift(message);
 }
 
 function getContactMessages() {
-    const stored = localStorage.getItem('course-contact-messages');
-    return stored ? JSON.parse(stored) : [];
+    return inMemoryStorage.contactMessages;
+}
+
+// Display contact form confirmation
+function displayContactConfirmation(message) {
+    const confirmationHTML = `
+        <div class="contact-confirmation" style="background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+            <h4 style="margin-top: 0; color: #155724;">Message Sent Successfully!</h4>
+            <p><strong>Summary of your message:</strong></p>
+            <p><strong>Name:</strong> ${message.name}</p>
+            <p><strong>Email:</strong> ${message.email}</p>
+            <p><strong>Course:</strong> ${courses[message.course].name}</p>
+            <p><strong>Subject:</strong> ${message.subject}</p>
+            <p><strong>Message:</strong> ${message.message}</p>
+            <p><strong>Sent:</strong> ${message.date}</p>
+            <p style="margin-bottom: 0;">You will receive feedback at <strong>${message.email}</strong> soon.</p>
+        </div>
+    `;
+
+    // Remove any existing confirmation
+    const existingConfirmation = document.querySelector('.contact-confirmation');
+    if (existingConfirmation) {
+        existingConfirmation.remove();
+    }
+
+    // Add new confirmation
+    contactForm.insertAdjacentHTML('afterend', confirmationHTML);
+
+    // Show notification
+    showNotification('Your message has been sent successfully!', 'success');
+
+    // Scroll to confirmation
+    setTimeout(() => {
+        document.querySelector('.contact-confirmation').scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+        });
+    }, 100);
 }
 
 // Initialize when DOM is loaded
