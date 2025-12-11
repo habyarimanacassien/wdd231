@@ -136,12 +136,12 @@ function displayStudyResources(resources) {
 
     booksContainer.innerHTML = '';
 
-    // Filter for Statistics subject only and show at least 15 items with valid data
+    // Filter show at least 15 items with valid data
     const validResources = resources.filter(resource =>
         resource.title &&
         resource.author &&
-        resource.subject &&
-        resource.subject.toLowerCase().includes('statistics')
+        resource.subject //&&
+       // resource.subject.toLowerCase().includes('statistics')
     ).slice(0, 15);
 
     // Show message if no statistics books found
